@@ -1,0 +1,113 @@
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 0;
+    /*margin 0 around the containers main and nav and children, 
+    no special unexpected behaviour "above" */
+
+    color: grey;
+}
+
+header h1, h2{
+    color: black;
+    font-weight: lighter;
+}
+
+main{
+margin-left: 300px;
+/*because of 298px navbar on the left*/
+}
+
+.main-section{
+    background-color: rgb(249,249,249);
+    padding: 30px;
+    line-height: 2;
+    font-size: 0.9rem;
+}
+
+.main-section header{
+    font-size: large;
+}
+
+.main-section li{
+    margin-bottom: 20px;
+}
+
+code{
+    background-color: rgb(230, 223, 223);
+    color: rgb(24, 23, 23);
+    border-radius: 3px;
+    padding: 10px;
+    display: block;
+
+    line-height: 2;
+    /*to improve readability
+    MDN's note to the value's units:"number - The used value is this unitless <number> multiplied by the 
+    element's own font size. The computed value is the same as the specified <number>.
+    In most cases, this is the preferred way to set line-height and avoid unexpected results
+     due to inheritance."
+    */
+}
+
+#navbar{
+    position: fixed;
+    /*it seems top:0 left:0 works by default*/
+
+    width: 298px;
+    height: 100vh;
+    border-right: 2px solid gray;
+}
+
+nav header{
+    text-align: center;
+    font-size: larger;
+}
+nav ul{
+    list-style: none;
+    line-height: 30px;
+    padding:0; /*by default padding was around 40px, changes were needed*/
+}
+
+
+nav li{
+    border-bottom: 1px solid black;
+    /*dividing lines between list/navbar items*/
+
+    padding: 10px 30px;   
+}
+
+nav li a{
+    text-decoration: none;
+    color: inherit;
+}
+
+nav ul li:hover{
+    padding-left: 40px;
+}
+
+nav ul li:first-of-type{
+    border-top: 1px solid black;
+    /*selects the first list item in nav and creates border at the top*/
+}
+
+@media only screen and (max-width: 750px){
+    main{
+        margin-left: initial;
+    }
+
+    #navbar{
+        position: static;
+        width: 95%;
+        height: 200px;
+        overflow: hidden scroll;
+        /*X-axis overflown content hidden, on Y-axis scrollbar appears*/
+
+        border: 2px 0px solid black;
+    }
+
+   nav ul li:hover{
+        padding-left: 30px;
+    }
+    /*to cancel out the hover effect (a bit irritating on small screens) 
+    - padding for all li items was set to 10px 30px earlier*/
+
+}
